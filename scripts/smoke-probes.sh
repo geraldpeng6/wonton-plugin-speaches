@@ -11,7 +11,9 @@
 # 装之前要准备（如先配出口代理）：写 before_install。
 
 web_assert() { # Speaches 的网页是挂在前端的 Gradio UI：Gradio 元素 + 页脚的上游仓库链接
-  grep -q 'gradio-app' && grep -q 'speaches-ai/speaches'
+  local page
+  page="$(cat)"
+  grep -q 'gradio-app' <<<"$page" && grep -q 'speaches-ai/speaches' <<<"$page"
 }
 
 # Speaches 没有用户体系：网页和接口不设账号，进入网页的鉴权由云吞网关负责（sso: none），
