@@ -10,7 +10,9 @@
 #       并在 SMOKE_NOTE 里写原因。
 # 装之前要准备（如先配出口代理）：写 before_install。
 
-web_assert() { grep -q 'gradio-container'; } # Speaches 的网页是挂在前端的 Gradio UI
+web_assert() { # Speaches 的网页是挂在前端的 Gradio UI：Gradio 元素 + 页脚的上游仓库链接
+  grep -q 'gradio-app' && grep -q 'speaches-ai/speaches'
+}
 
 # Speaches 没有用户体系：网页和接口不设账号，进入网页的鉴权由云吞网关负责（sso: none），
 # 没有可断言的“当前用户”接口。
