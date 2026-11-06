@@ -14,10 +14,13 @@ web_assert() { grep -q 'gradio-container'; } # Speaches 的网页是挂在前端
 
 # Speaches 没有用户体系：网页和接口不设账号，进入网页的鉴权由云吞网关负责（sso: none），
 # 没有可断言的“当前用户”接口。
+# shellcheck disable=SC2034  # 这几个变量由探针套件（scripts/probes.sh）读本文件后使用。
 IDENTITY_NA=1
 
 # Speaches 无状态：转写、合成的结果直接返回给调用方，不在应用里落库；模型缓存是内部数据，
 # 不算用户数据。没有可写、可核对的用户数据。
+# shellcheck disable=SC2034  # 同上：探针套件读。
 DATA_NA=1
 
+# shellcheck disable=SC2034  # 同上：探针套件读。
 SMOKE_NOTE="Speaches 没有用户体系，也不存用户数据（转写/合成结果直接返回，不落库）"
