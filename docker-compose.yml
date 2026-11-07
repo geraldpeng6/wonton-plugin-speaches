@@ -6,7 +6,7 @@ services:
   # 一次性：数据目录的卷会盖住镜像里预建的 ~/.cache/huggingface/hub，全新安装时
   # huggingface_hub 扫缓存直接 CacheNotFound 起不来；先在卷里把目录建出来。
   init-hub:
-    image: ghcr.io/geraldpeng6/speaches:0.1.0
+    image: ghcr.io/geraldpeng6/speaches:0.1.0@sha256:8acf2d605cfee5b7f760569d8e424d3dcb0b975d21a89dd689278e6789566840
     command: ["mkdir", "-p", "/home/ubuntu/.cache/huggingface/hub"]
     user: "1000:1000"
     volumes:
@@ -16,7 +16,7 @@ services:
 
   speaches:
     # 审查时镜像还没发布，没有摘要；构建命令见 README（发布由 publish.sh 推送并按摘要固定）。
-    image: ghcr.io/geraldpeng6/speaches:0.1.0
+    image: ghcr.io/geraldpeng6/speaches:0.1.0@sha256:8acf2d605cfee5b7f760569d8e424d3dcb0b975d21a89dd689278e6789566840
     # 上游镜像固定以 ubuntu（uid 1000）运行，写死 user 让数据目录属主和它一致（不跟 PUID 走）。
     user: "1000:1000"
     depends_on:
