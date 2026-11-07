@@ -35,7 +35,7 @@ services:
       start_interval: 5s
 
 x-wonton:
-  spec: "0.5"
+  spec: "0.6"
   # 反向域名：上游官网 speaches.ai。
   id: ai.speaches.speaches
   version: 0.1.0
