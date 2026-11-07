@@ -1,14 +1,46 @@
+许可与声明
+==========
+
 图标
-====
+----
 
-`icon.svg` 为本仓库原创，按插件规范的线条风格手写，未用图片模型生成。从模板新建的插件换成自己的图标时，这里按实际情况重写。
+本插件包的图标（icon.svg）为原创绘制（声波线条，按云吞插件规范的线条风格），随本仓库
+的 LICENSE（MIT）分发。上游 Speaches 项目没有官方标志。
 
-许可证
-------
+上游许可证全文
+--------------
+
+Speaches 的代码按 MIT 许可证发布
+（https://github.com/speaches-ai/speaches/blob/main/LICENSE）：
 
 MIT License
 
-Copyright (c) 2026 Wonton plugin authors
+Copyright (c) 2024 Fedir Zadniprovskyi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+插件包许可证
+------------
+
+MIT License
+
+Copyright (c) 2026 geraldpeng6
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
