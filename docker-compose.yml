@@ -3,11 +3,25 @@
 # 的 *-cuda 标签），RTX 50 系（sm_120）要 CUDA 12.8 的运行库，所以用 images/speaches/
 # 的自建镜像：上游 Dockerfile 只改基础镜像（官方 CUDA 12.8）和取源方式，不改上游代码。
 services:
+  # 一次性：数据目录的卷会盖住镜像里预建的 ~/.cache/huggingface/hub，全新安装时
+  # huggingface_hub 扫缓存直接 CacheNotFound 起不来；先在卷里把目录建出来。
+  init-hub:
+    image: ghcr.io/geraldpeng6/speaches:0.1.0
+    command: ["mkdir", "-p", "/home/ubuntu/.cache/huggingface/hub"]
+    user: "1000:1000"
+    volumes:
+      - ${WONTON_APP_DATA}/huggingface:/home/ubuntu/.cache/huggingface
+    network_mode: none
+    restart: "no"
+
   speaches:
     # 审查时镜像还没发布，没有摘要；构建命令见 README（发布由 publish.sh 推送并按摘要固定）。
     image: ghcr.io/geraldpeng6/speaches:0.1.0
     # 上游镜像固定以 ubuntu（uid 1000）运行，写死 user 让数据目录属主和它一致（不跟 PUID 走）。
     user: "1000:1000"
+    depends_on:
+      init-hub:
+        condition: service_completed_successfully
     environment:
       TZ: ${TZ}
       # 上游默认端口 8000 是最常被占用的端口之一，而局域网端口不做映射（宿主端口 = 容器端口），
