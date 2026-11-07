@@ -15,6 +15,9 @@ services:
       UVICORN_PORT: "8300"
       # 上游默认 debug 日志，量太大。
       LOG_LEVEL: info
+      # 网页的模型下拉经 OpenAI 客户端回连本服务；不设这个时它用浏览器的公网地址，
+      # 容器里解析不了，下拉全是 Error。指到容器自己的 API（和健康检查同一地址）。
+      LOOPBACK_HOST_URL: http://127.0.0.1:8300
       # 局域网端口上 curl 健康检查访问的是本机；核心给出网插件注入的代理变量不豁免本机地址，
       # 会把健康检查送进代理。只豁免本机，模型下载（huggingface.co）照常走代理。
       NO_PROXY: localhost,127.0.0.1
