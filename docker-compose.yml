@@ -54,10 +54,10 @@ x-wonton:
   id: ai.speaches.speaches
   version: 0.1.0
   kind: app
-  title: { en: Speaches }
+  title: { zh: 语音转文字与朗读（Speaches）, en: Speech to Text & Voice (Speaches) }
   description:
-    zh: 在自己家的显卡上转文字、发语音，OpenAI 兼容接口
-    en: Speech-to-text and text-to-speech on your own GPU, with an OpenAI-compatible API
+    zh: 用家里的 NVIDIA 显卡把录音变成文字、把文字念出来：会议录音整理成文字稿、给文章配上朗读，声音不出家门。
+    en: Use your home server's NVIDIA graphics card to turn recordings into text and text into speech — meeting transcripts, read-aloud articles — without the audio leaving home.
   icon: icon.svg
   notices: [NOTICE]
   screenshots: [screenshots/ui-1.png, screenshots/ui-2.png, screenshots/ui-3.png]
@@ -71,7 +71,7 @@ x-wonton:
   about:
     zh: |
       把语音模型装在自己家里：录音转成文字（Whisper），文字念成语音（Kokoro、Piper），
-      接口和 OpenAI 的一样，写过的代码直接换地址就能用。
+      家里其他软件也能连上来用。
 
       有 NVIDIA 显卡就用显卡，模型在第一次用到时自动下载、用完自动卸载。
       默认模型：识别用 faster-whisper-large-v3（约 3.1 GB，占约 4 GB 显存），
@@ -83,9 +83,8 @@ x-wonton:
       网页经云吞网关访问，只有登录的用户进得来；局域网接口不经过网关，和 Ollama 一样
       不设密码，只在家里网络用。
     en: |
-      Run speech models on your own hardware: turn recordings into text (Whisper) and text
-      into speech (Kokoro, Piper). The API is OpenAI-compatible — point existing code at it
-      and it works.
+      Run speech models at home: turn recordings into text (Whisper) and text into speech
+      (Kokoro, Piper), and let your other software connect to them.
 
       Uses your NVIDIA GPU when there is one. Models download on first use and unload when
       idle. Defaults: faster-whisper-large-v3 for recognition (about 3.1 GB on disk, about
